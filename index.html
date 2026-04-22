@@ -3,125 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazfit Bip 6 | Custom Watch Faces by N3X71991</title>
+    <title>N3X71991 | Haute Horlogerie Digital</title>
     <style>
         :root {
-            --primary-orange: #ff8c00;
-            --dark-bg: #0d0d0d;
-            --card-bg: #1a1a1a;
-            --text-gray: #b3b3b3;
+            --gold-orange: #ff8c00;
+            --deep-black: #050505;
+            --card-bg: #111111;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 140, 0, 0.2);
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@100;300;700&display=swap');
 
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--deep-black);
             color: #fff;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding-bottom: 50px;
-            /* Protecție: împiedică selectarea textului */
             user-select: none;
             -webkit-user-select: none;
+            overflow-x: hidden;
         }
 
+        /* HEADER PREMIUM */
         header {
-            padding: 60px 20px;
+            padding: 100px 20px 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #222 0%, #0d0d0d 100%);
-            border-bottom: 1px solid #333;
+            background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%);
         }
 
-        header h1 {
-            font-size: 2.5em;
+        .brand-logo {
+            display: inline-block;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .logo-main {
+            font-family: 'Anton', sans-serif;
+            font-size: 4.5em;
+            letter-spacing: 12px;
             margin: 0;
-            letter-spacing: -1px;
+            background: linear-gradient(180deg, #fff 30%, var(--gold-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
         }
 
-        header p {
-            color: var(--primary-orange);
-            font-weight: bold;
+        .logo-capsule {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 115%;
+            height: 140%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            z-index: 0;
+        }
+
+        .tagline {
+            font-size: 0.7em;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: var(--gold-orange);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 10px;
+            margin-top: 35px;
+            opacity: 0.9;
         }
 
+        /* SECTION COMPATIBILITY (SUBTITLUL NOU) */
+        .compatibility-badge {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .compatibility-text {
+            display: inline-block;
+            border: 1px solid #222;
+            padding: 10px 25px;
+            font-size: 0.75em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .compatibility-text span {
+            color: var(--gold-orange);
+            font-weight: 700;
+        }
+
+        /* GRID & CARDS */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px 60px 20px;
         }
 
         .shop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .watch-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            border: 1px solid #1a1a1a;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
             position: relative;
         }
 
         .watch-card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary-orange);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            border-color: var(--gold-orange);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        /* Containerul imaginii cu Watermark */
         .watch-image {
             width: 100%;
-            height: 300px;
-            background: #252525;
+            height: 320px;
+            background: linear-gradient(145deg, #0f0f0f, #050505);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            position: relative; /* Pentru a poziționa watermark-ul peste imagine */
+            position: relative;
         }
 
         .watch-image img {
             width: 80%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-            pointer-events: none; /* Împiedică salvarea imaginii prin click lung pe mobil */
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));
         }
 
-        /* Stilul Watermark-ului */
         .watermark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-45deg);
-            color: rgba(255, 255, 255, 0.15); /* Alb transparent */
-            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
             font-weight: bold;
             white-space: nowrap;
-            pointer-events: none; /* Să nu blocheze hover-ul pe card */
+            pointer-events: none;
             z-index: 2;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 5px 10px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .watch-info {
-            padding: 20px;
+            padding: 25px;
+            text-align: center;
         }
 
         .watch-info h3 {
+            font-family: 'Anton', sans-serif;
             margin: 0 0 10px 0;
-            font-size: 1.4em;
+            font-size: 1.7em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .price-tag {
             font-size: 1.2em;
-            color: var(--primary-orange);
-            font-weight: bold;
+            color: var(--gold-orange);
+            letter-spacing: 2px;
             margin-bottom: 20px;
             display: block;
         }
@@ -131,37 +183,53 @@
             background: #fff;
             color: #000;
             text-align: center;
-            padding: 12px;
+            padding: 14px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: 0.3s;
+            font-size: 0.85em;
         }
 
         .buy-btn:hover {
-            background: var(--primary-orange);
+            background: var(--gold-orange);
             color: #fff;
         }
 
         .telegram-bar {
             text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            border-top: 1px solid #333;
+            padding: 60px 20px;
+            border-top: 1px solid #111;
         }
 
         .tg-link {
-            color: #0088cc;
+            color: var(--gold-orange);
             text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .logo-main { font-size: 2.8em; letter-spacing: 6px; }
+            header { padding: 80px 20px 40px 20px; }
         }
     </style>
 </head>
-<body oncontextmenu="return false;"> <header>
-    <h1>N3X71991 Watchfaces</h1>
-    <p>Premium Designs for Amazfit Bip 6</p>
+<body oncontextmenu="return false;">
+
+<header>
+    <div class="brand-logo">
+        <div class="logo-capsule"></div>
+        <h1 class="logo-main">N3X71991</h1>
+    </div>
+    <div class="tagline">Haute Horlogerie Digitale</div>
 </header>
+
+<div class="compatibility-badge">
+    <div class="compatibility-text">Engineered for <span>Amazfit Bip 6</span></div>
+</div>
 
 <div class="container">
     <div class="shop-grid">
@@ -173,8 +241,8 @@
             </div>
             <div class="watch-info">
                 <h3>Liquid Glass</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -185,8 +253,8 @@
             </div>
             <div class="watch-info">
                 <h3>Amber New</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -197,8 +265,8 @@
             </div>
             <div class="watch-info">
                 <h3>Liquid Chrono</h3>
-                <span class="price-tag">$3.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$3.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -209,8 +277,8 @@
             </div>
             <div class="watch-info">
                 <h3>HUD</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -221,8 +289,8 @@
             </div>
             <div class="watch-info">
                 <h3>HUD New</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -233,8 +301,8 @@
             </div>
             <div class="watch-info">
                 <h3>Neural HUD</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -245,8 +313,8 @@
             </div>
             <div class="watch-info">
                 <h3>Holo</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -257,8 +325,8 @@
             </div>
             <div class="watch-info">
                 <h3>Holo Renew</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -269,8 +337,8 @@
             </div>
             <div class="watch-info">
                 <h3>Holo Ring</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -279,10 +347,10 @@
                 <img src="watchface10.png" alt="Neon Future">
                 <div class="watermark">N3X71991 Watchfaces</div>
             </div>
-            <div class="Neon Future">
-                <h3>Amber New</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+            <div class="watch-info">
+                <h3>Neon Future</h3>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -293,8 +361,8 @@
             </div>
             <div class="watch-info">
                 <h3>Neon Future2</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -305,8 +373,8 @@
             </div>
             <div class="watch-info">
                 <h3>Purple Tok Vice</h3>
-                <span class="price-tag">$3.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$3.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -317,8 +385,8 @@
             </div>
             <div class="watch-info">
                 <h3>New Glass Halo</h3>
-                <span class="price-tag">$3.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$3.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -329,8 +397,8 @@
             </div>
             <div class="watch-info">
                 <h3>Glass New</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -341,8 +409,8 @@
             </div>
             <div class="watch-info">
                 <h3>Glass Panels</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -353,8 +421,8 @@
             </div>
             <div class="watch-info">
                 <h3>Bubbles Glass</h3>
-                <span class="price-tag">$2.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$2.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -365,8 +433,8 @@
             </div>
             <div class="watch-info">
                 <h3>Ice N Fire Glass</h3>
-                <span class="price-tag">$3.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$3.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
@@ -377,21 +445,19 @@
             </div>
             <div class="watch-info">
                 <h3>Ice N Fire</h3>
-                <span class="price-tag">$3.00</span>
-                <a href="https://t.me/N3X71991" class="buy-btn">Cumpără / Contact</a>
+                <span class="price-tag">$3.00 USD</span>
+                <a href="https://t.me/N3X71991" class="buy-btn">Acquire Design</a>
             </div>
         </div>
 
-        </div>
+    </div>
 
     <div class="telegram-bar">
-        <p>Vrei un design personalizat sau suport? Contactează-mă:</p>
-        <a href="https://t.me/N3X71991" class="tg-link">@N3X71991 (Telegram)</a>
+        <a href="https://t.me/N3X71991" class="tg-link">CONTACT DEVELOPER: @N3X71991</a>
     </div>
 </div>
 
 <script>
-    // Blochează scurtăturile de tastatură pentru Inspect Element (Ctrl+Shift+I, F12 etc.)
     document.onkeydown = function(e) {
         if(e.keyCode == 123) return false;
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
@@ -399,13 +465,6 @@
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
         if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
     }
-
-    // Blochează Drag & Drop pe imagini
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
-    });
 </script>
 
 </body>
